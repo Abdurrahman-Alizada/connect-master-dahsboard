@@ -22,7 +22,7 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:![Uploading Screenshot 2025-10-30 at 9.15.23 AM.png…]()
+To learn more about Next.js, take a look at the following resources:
 
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
