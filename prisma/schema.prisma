@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  phone     String?
+  status    String   @default("active") // active, blocked
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Shop {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  address     String
+  phone       String
+  email       String?
+  status      String   @default("active") // active, inactive, pending
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Event {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  location    String
+  startDate   DateTime
+  endDate     DateTime
+  status      String   @default("upcoming") // upcoming, ongoing, completed, cancelled
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Service {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  category    String
+  price       Float
+  status      String   @default("available") // available, unavailable
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
