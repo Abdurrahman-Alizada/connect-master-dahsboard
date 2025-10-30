@@ -51,15 +51,15 @@ export default function AdminSidebar() {
 
   const SidebarContent = () => (
     <>
-      <div className={`p-4 border-b border-gray-200 dark:border-gray-700 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
+      <div className={`p-4 border-b border-gray-200 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
         {!isCollapsed && (
-          <h1 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
+          <h1 className="text-xl font-bold text-indigo-600">
             Admin Panel
           </h1>
         )}
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
-          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400"
+          className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-500"
         >
           {isCollapsed ? (
             <ChevronRight className="w-5 h-5" />
@@ -81,7 +81,7 @@ export default function AdminSidebar() {
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                 isActive
                   ? 'bg-indigo-600 text-white'
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
               <Icon className="w-5 h-5 flex-shrink-0" />
@@ -93,10 +93,10 @@ export default function AdminSidebar() {
         })}
       </nav>
 
-      <div className="p-2 border-t border-gray-200 dark:border-gray-700">
+      <div className="p-2 border-t border-gray-200">
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 px-3 py-2.5 w-full rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+          className="flex items-center gap-3 px-3 py-2.5 w-full rounded-lg text-red-600 hover:bg-red-50 transition-colors"
         >
           <LogOut className="w-5 h-5 flex-shrink-0" />
           {!isCollapsed && (
@@ -112,7 +112,7 @@ export default function AdminSidebar() {
       {/* Mobile menu button */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg"
+        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-lg shadow-lg"
       >
         {isMobileMenuOpen ? (
           <X className="w-6 h-6" />
@@ -128,7 +128,7 @@ export default function AdminSidebar() {
           onClick={() => setIsMobileMenuOpen(false)}
         >
           <div
-            className="w-64 h-full bg-white dark:bg-gray-800 flex flex-col"
+            className="w-64 h-full bg-white flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             <SidebarContent />
@@ -137,7 +137,7 @@ export default function AdminSidebar() {
       )}
 
       {/* Desktop sidebar */}
-      <div className={`hidden md:flex md:flex-col md:fixed md:inset-y-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transition-all duration-300 ${
+      <div className={`hidden md:flex md:flex-col md:fixed md:inset-y-0 bg-white border-r border-gray-200 transition-all duration-300 ${
         isCollapsed ? 'md:w-16' : 'md:w-64'
       }`}>
         <SidebarContent />

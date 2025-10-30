@@ -36,7 +36,7 @@ export default function ProtectedLayout({
   }, [router])
 
   return (
-    <div className="flex h-screen overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div className="flex h-screen overflow-hidden bg-gray-50">
       <AdminSidebar />
       <div className={`flex-1 transition-all duration-300 ${
         isSidebarCollapsed ? 'md:ml-16' : 'md:ml-64'
