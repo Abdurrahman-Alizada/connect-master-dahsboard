@@ -123,11 +123,11 @@ export default function UsersPage() {
   const getStatusBadgeClass = (status: string) => {
     switch (status) {
       case 'active':
-        return 'bg-green-100 text-green-800'
+        return 'bg-success/20 text-success'
       case 'blocked':
-        return 'bg-red-100 text-red-800'
+        return 'bg-error/20 text-error'
       default:
-        return 'bg-gray-100 text-gray-800'
+        return 'bg-off-white text-gray-800'
     }
   }
 
@@ -135,16 +135,16 @@ export default function UsersPage() {
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-text-primary">
             Users Management
           </h1>
-          <p className="text-gray-600 mt-2">
+          <p className="text-text-secondary mt-2">
             Manage user accounts, permissions, and access
           </p>
         </div>
         <button
           onClick={openCreateModal}
-          className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
+          className="flex items-center gap-2 px-4 py-2 bg-teal-green text-white rounded-lg hover:bg-forest-green transition-colors shadow-sm"
         >
           <Plus className="w-5 h-5" />
           Add User
@@ -155,18 +155,18 @@ export default function UsersPage() {
         <CardContent className="pt-6">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray w-5 h-5" />
               <input
                 type="text"
                 placeholder="Search by name, email, or phone..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm"
+                className="w-full pl-10 pr-4 py-2 border border-light-gray rounded-lg focus:ring-2 focus:ring-teal-green focus:border-transparent shadow-sm"
               />
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 border border-light-gray rounded-lg hover:bg-off-white transition-colors"
             >
               <Filter className="w-5 h-5" />
               Filters
@@ -174,16 +174,16 @@ export default function UsersPage() {
           </div>
 
           {showFilters && (
-            <div className="mt-4 pt-4 border-t border-gray-200">
+            <div className="mt-4 pt-4 border-t border-light-gray">
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="flex-1">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-text-primary mb-2">
                     Status
                   </label>
                   <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm"
+                    className="w-full px-3 py-2 border border-light-gray rounded-lg focus:ring-2 focus:ring-teal-green focus:border-transparent shadow-sm"
                   >
                     <option value="">All Status</option>
                     <option value="active">Active</option>
@@ -193,7 +193,7 @@ export default function UsersPage() {
                 <div className="flex items-end">
                   <button
                     onClick={clearFilters}
-                    className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-900 transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 text-text-secondary hover:text-text-primary transition-colors"
                   >
                     <X className="w-4 h-4" />
                     Clear Filters
@@ -212,11 +212,11 @@ export default function UsersPage() {
         <CardContent>
           {filteredUsers.length === 0 ? (
             <div className="text-center py-12">
-              <div className="mx-auto w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-4">
-                <UsersIcon className="w-8 h-8 text-gray-400" />
+              <div className="mx-auto w-16 h-16 rounded-full bg-off-white flex items-center justify-center mb-4">
+                <UsersIcon className="w-8 h-8 text-gray" />
               </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-1">No users found</h3>
-              <p className="text-gray-600">
+              <h3 className="text-lg font-medium text-text-primary mb-1">No users found</h3>
+              <p className="text-text-secondary">
                 {search || statusFilter 
                   ? 'Try adjusting your search or filter criteria' 
                   : 'Get started by adding a new user'}
@@ -224,7 +224,7 @@ export default function UsersPage() {
               {!search && !statusFilter && (
                 <button
                   onClick={openCreateModal}
-                  className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+                  className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-teal-green text-white rounded-lg hover:bg-forest-green transition-colors"
                 >
                   <Plus className="w-4 h-4" />
                   Add User
@@ -235,20 +235,20 @@ export default function UsersPage() {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 font-medium text-gray-700">
+                  <tr className="border-b border-light-gray">
+                    <th className="text-left py-3 px-4 font-medium text-text-primary">
                       User
                     </th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-700">
+                    <th className="text-left py-3 px-4 font-medium text-text-primary">
                       Contact
                     </th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-700">
+                    <th className="text-left py-3 px-4 font-medium text-text-primary">
                       Status
                     </th>
-                    <th className="text-left py-3 px-4 font-medium text-gray-700">
+                    <th className="text-left py-3 px-4 font-medium text-text-primary">
                       Joined
                     </th>
-                    <th className="text-right py-3 px-4 font-medium text-gray-700">
+                    <th className="text-right py-3 px-4 font-medium text-text-primary">
                       Actions
                     </th>
                   </tr>
@@ -257,18 +257,18 @@ export default function UsersPage() {
                   {filteredUsers.map((user) => (
                     <tr
                       key={user.id}
-                      className="border-b border-gray-200 hover:bg-gray-50 transition-colors"
+                      className="border-b border-light-gray hover:bg-off-white transition-colors"
                     >
                       <td className="py-3 px-4">
-                        <div className="font-medium text-gray-900">
+                        <div className="font-medium text-text-primary">
                           {user.name}
                         </div>
                       </td>
                       <td className="py-3 px-4">
-                        <div className="text-gray-600">
+                        <div className="text-text-secondary">
                           {user.email}
                         </div>
-                        <div className="text-sm text-gray-500">
+                        <div className="text-sm text-text-tertiary">
                           {user.phone || 'No phone'}
                         </div>
                       </td>
@@ -279,14 +279,14 @@ export default function UsersPage() {
                           {user.status.charAt(0).toUpperCase() + user.status.slice(1)}
                         </span>
                       </td>
-                      <td className="py-3 px-4 text-gray-600">
+                      <td className="py-3 px-4 text-text-secondary">
                         {new Date(user.createdAt).toLocaleDateString()}
                       </td>
                       <td className="py-3 px-4">
                         <div className="flex justify-end gap-2">
                           <button
                             onClick={() => openEditModal(user)}
-                            className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                            className="p-2 text-teal-green hover:bg-mint-green/20 rounded-lg transition-colors"
                             title="Edit user"
                           >
                             <Edit className="w-4 h-4" />
@@ -295,8 +295,8 @@ export default function UsersPage() {
                             onClick={() => handleToggleStatus(user.id)}
                             className={`p-2 rounded-lg transition-colors ${
                               user.status === 'active'
-                                ? 'text-orange-600 hover:bg-orange-50'
-                                : 'text-green-600 hover:bg-green-50'
+                                ? 'text-warning hover:bg-warning/10'
+                                : 'text-success hover:bg-success/10'
                             }`}
                             title={user.status === 'active' ? 'Block user' : 'Unblock user'}
                           >
@@ -308,7 +308,7 @@ export default function UsersPage() {
                           </button>
                           <button
                             onClick={() => handleDelete(user.id)}
-                            className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                            className="p-2 text-error hover:bg-error/10 rounded-lg transition-colors"
                             title="Delete user"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -329,19 +329,19 @@ export default function UsersPage() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg max-w-md w-full p-6 max-h-[90vh] overflow-y-auto shadow-xl">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold text-gray-900">
+              <h2 className="text-2xl font-bold text-text-primary">
                 {editingUser ? 'Edit User' : 'Add New User'}
               </h2>
               <button
                 onClick={() => setShowModal(false)}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-text-tertiary hover:text-text-primary"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-text-primary mb-2">
                   Email *
                 </label>
                 <input
@@ -351,11 +351,11 @@ export default function UsersPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm"
+                  className="w-full px-3 py-2 border border-light-gray rounded-lg focus:ring-2 focus:ring-teal-green focus:border-transparent shadow-sm"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-text-primary mb-2">
                   Name *
                 </label>
                 <input
@@ -365,11 +365,11 @@ export default function UsersPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm"
+                  className="w-full px-3 py-2 border border-light-gray rounded-lg focus:ring-2 focus:ring-teal-green focus:border-transparent shadow-sm"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-text-primary mb-2">
                   Phone
                 </label>
                 <input
@@ -378,11 +378,11 @@ export default function UsersPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, phone: e.target.value })
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm"
+                  className="w-full px-3 py-2 border border-light-gray rounded-lg focus:ring-2 focus:ring-teal-green focus:border-transparent shadow-sm"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-text-primary mb-2">
                   Status
                 </label>
                 <select
@@ -390,7 +390,7 @@ export default function UsersPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, status: e.target.value })
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm"
+                  className="w-full px-3 py-2 border border-light-gray rounded-lg focus:ring-2 focus:ring-teal-green focus:border-transparent shadow-sm"
                 >
                   <option value="active">Active</option>
                   <option value="blocked">Blocked</option>
@@ -400,13 +400,13 @@ export default function UsersPage() {
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                  className="flex-1 px-4 py-2 border border-light-gray rounded-lg hover:bg-off-white transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
+                  className="flex-1 px-4 py-2 bg-teal-green text-white rounded-lg hover:bg-forest-green transition-colors shadow-sm"
                 >
                   {editingUser ? 'Update User' : 'Create User'}
                 </button>

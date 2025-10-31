@@ -51,15 +51,15 @@ export default function AdminSidebar() {
 
   const SidebarContent = () => (
     <>
-      <div className={`p-4 border-b border-gray-200 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
+      <div className={`p-4 border-b border-light-gray flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
         {!isCollapsed && (
-          <h1 className="text-xl font-bold text-indigo-600">
+          <h1 className="text-xl font-bold text-teal-green">
             Admin Panel
           </h1>
         )}
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
-          className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-500"
+          className="p-1.5 rounded-lg hover:bg-off-white text-gray"
         >
           {isCollapsed ? (
             <ChevronRight className="w-5 h-5" />
@@ -80,8 +80,8 @@ export default function AdminSidebar() {
               onClick={() => setIsMobileMenuOpen(false)}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                 isActive
-                  ? 'bg-indigo-600 text-white'
-                  : 'text-gray-700 hover:bg-gray-100'
+                  ? 'bg-teal-green text-white'
+                  : 'text-text-primary hover:bg-off-white'
               }`}
             >
               <Icon className="w-5 h-5 flex-shrink-0" />
@@ -93,10 +93,10 @@ export default function AdminSidebar() {
         })}
       </nav>
 
-      <div className="p-2 border-t border-gray-200">
+      <div className="p-2 border-t border-light-gray">
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 px-3 py-2.5 w-full rounded-lg text-red-600 hover:bg-red-50 transition-colors"
+          className="flex items-center gap-3 px-3 py-2.5 w-full rounded-lg text-error hover:bg-error/10 transition-colors"
         >
           <LogOut className="w-5 h-5 flex-shrink-0" />
           {!isCollapsed && (
@@ -137,7 +137,7 @@ export default function AdminSidebar() {
       )}
 
       {/* Desktop sidebar */}
-      <div className={`hidden md:flex md:flex-col md:fixed md:inset-y-0 bg-white border-r border-gray-200 transition-all duration-300 ${
+      <div className={`hidden md:flex md:flex-col md:fixed md:inset-y-0 bg-white border-r border-light-gray transition-all duration-300 ${
         isCollapsed ? 'md:w-16' : 'md:w-64'
       }`}>
         <SidebarContent />

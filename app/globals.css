@@ -1,21 +1,74 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8F9FA;
+  --foreground: #1A1A1A;
 }
 
 @theme inline {
+  /* Base colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-/* Force light theme */
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Brand Colors */
+  --color-forest-green: #1A4D4D;
+  --color-teal-green: #5B8E7D;
+  --color-mint-green: #A4C4B7;
+  --color-sage-green: #8C9E88;
+  --color-primary-green: #06baad;
+  --color-main-green: #74AC8C;
+
+  /* Secondary Colors */
+  --color-dark-brown: #5D4A3C;
+  --color-medium-brown: #7E6F5E;
+  --color-terracotta: #A6765F;
+
+  /* Neutrals - Warm */
+  --color-off-white: #EDE8E0;
+  --color-cream: #E8DDD3;
+  --color-light-tan: #E8D7C3;
+  --color-tan: #C0A57D;
+
+  /* Neutrals - Cool */
+  --color-light-gray: #C2C2C2;
+  --color-medium-gray: #B8B8B8;
+  --color-gray: #9E9E9E;
+  --color-dark-gray: #515755;
+  --color-slate-blue: #6B7A8C;
+
+  /* Accent Colors */
+  --color-gold: #D9A95B;
+  --color-star-yellow: #FFB800;
+  --color-dark-teal: #496B68;
+  --color-olive: #6D6B59;
+  --color-dusty-rose: #C89090;
+
+  /* Base */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-card-bg: #FFFFFF;
+  --color-tag-bg: #F5F5F5;
+
+  /* Text Colors */
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #666666;
+  --color-text-tertiary: #999999;
+  --color-text-white: #FFFFFF;
+
+  /* Gray Scale */
+  --color-gray-50: #F8F9FA;
+  --color-gray-100: #C2C2C2;
+  --color-gray-200: #B8B8B8;
+  --color-gray-300: #9E9E9E;
+  --color-gray-400: #9CA3AF;
+
+  /* Status Colors */
+  --color-error: #DC2626;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-info: #3B82F6;
 }
 
 body {
@@ -24,27 +77,10 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-/* Ensure all text is visible with proper contrast */
-.text-gray-900 {
-  color: #171717;
-}
-
-.text-gray-600 {
-  color: #525252;
-}
-
-.text-gray-500 {
-  color: #737373;
-}
-
-.bg-white {
-  background-color: #ffffff;
-}
-
 /* Card styles for better visibility */
 .card {
-  background: #ffffff;
-  border: 1px solid #e5e5e5;
+  background: var(--color-white);
+  border: 1px solid var(--color-light-gray);
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }

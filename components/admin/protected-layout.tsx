@@ -14,9 +14,9 @@ export default function ProtectedLayout({
 
   useEffect(() => {
     const token = localStorage.getItem('admin_token')
-    if (!token) {
-      router.push('/admin/login')
-    }
+    // if (!token) {
+    //   router.push('/admin/login')
+    // }
 
     // Load sidebar collapsed state
     const savedCollapsedState = localStorage.getItem('sidebarCollapsed')
